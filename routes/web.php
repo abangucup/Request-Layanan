@@ -12,7 +12,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::resource('cctv', CctvController::class);
 Route::resource('internet', InternetController::class);
 Route::resource('contact', ContactController::class);
-Route::resource('permintaan', PermintaanController::class);
 
 // user
 Route::get('cctv', [CctvController::class, 'userindex'])->name('cctv');
+Route::get('internet', [InternetController::class, 'userindex'])->name('internet');
+Route::get('contact', [ContactController::class, 'userindex'])->name('contact');
+Route::resource('permintaan', PermintaanController::class);

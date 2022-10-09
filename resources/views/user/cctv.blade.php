@@ -52,9 +52,9 @@
                     <iframe src="https://rtsp.me/embed/QzFdkBa5/" frameborder="0" allowfullscreen></iframe>
                 </div>
 
-                {{-- unknown --}}
+                {{-- cctv di tempat parkir --}}
                 <div class="col-lg-4">
-                    <iframe src="https://rtsp.me/embed/Bea6ezFk/" frameborder="0" allowfullscreen></iframe>
+                    <iframe src="https://rtsp.me/embed/ByZR5Hab/" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
 
