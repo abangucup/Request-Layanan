@@ -15,4 +15,9 @@ class CctvController extends Controller
     {
         return view('admin.cctv.index');
     }
+
+    public function store(Request $request)
+    {
+        
+    }
 }

@@ -12,8 +12,7 @@
 </head>
   
 <body>
-  
-  
+
   @include('user.layouts.partials.header')
   
   
