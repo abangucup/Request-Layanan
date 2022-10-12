@@ -13,9 +13,11 @@ class Cctv extends Model
     [
         'lokasi',
         'ip',
+        'port',
         'url',
         'username',
         'password',
-        'nama'
+        'nama',
+        'status'
     ];
 }

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('lokasi');
             $table->string('ip');
+            $table->string('port');
             $table->string('nama');
             $table->string('url');
             $table->string('status');

@@ -6,7 +6,7 @@
                     © <script>
                         document.write(new Date().getFullYear())
                     </script>
-                    Copyright <i class="fa fa-heart" aria-hidden="true"></i><b> Kominfo Kabupaten Bomebolango</b>
+                    Copyright <i class="fa fa-heart" aria-hidden="true"></i><b> Kominfo Kabupaten Bonebolango</b>
                 </div>
 
             </div>

@@ -37,29 +37,12 @@
         <div class="container" data-aos="fade-up">
 
             <div class="row gy-4">
-                {{-- cctv di kominfo 2 || komunikasi --}}
+                @foreach ($cctvs as $cctv)
                 <div class="col-lg-4">
-                    <iframe src="https://rtsp.me/embed/Bea6ezFk/" frameborder="0" width="400" allowfullscreen></iframe>
-                    <p class="text-center">Depan Kominfo Bidang Komunikasi</p>
+                    <iframe src="{{ $cctv->url}}" frameborder="0" width="400" allowfullscreen></iframe>
+                    <p class="text-center">{{ $cctv->lokasi}}</p>
                 </div>
-
-                {{-- cctv di capil --}}
-                <div class="col-lg-4">
-                    <iframe src="https://rtsp.me/embed/D8sbGS9k/" frameborder="0" width="400" allowfullscreen></iframe>
-                    <p class="text-center">Depan Capil</p>
-                </div>
-
-                {{-- cctv di depan kominfo informatika --}}
-                <div class="col-lg-4">
-                    <iframe src="https://rtsp.me/embed/QzFdkBa5/" frameborder="0" width="400" allowfullscreen></iframe>
-                    <p class="text-center">Depan Kominfo Bidang Informatika</p>
-                </div>
-
-                {{-- cctv di tempat parkir --}}
-                <div class="col-lg-4">
-                    <iframe src="https://rtsp.me/embed/ByZR5Hab/" frameborder="0" width="400" allowfullscreen></iframe>
-                    <p class="text-center">Tempat Parkir Kominfo</p>
-                </div>
+                @endforeach
             </div>
 
         </div>
