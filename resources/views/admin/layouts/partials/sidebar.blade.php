@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white {{ request()->is('dashboard') ? 'active bg-gradient-primary': ''}}" href="{{ route('dashboard')}}">
+          <a class="nav-link text-white {{ request()->is('dashboard') ? 'active bg-gradient-info': ''}}" href="{{ route('dashboard')}}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
@@ -18,7 +18,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white {{ request()->is('dashboard/cctv') ? 'active bg-gradient-primary': '' }}" href="{{ route('cctv.index')}}">
+          <a class="nav-link text-white {{ request()->is('dashboard/cctv') ? 'active bg-gradient-info': '' }}" href="{{ route('cctv.index')}}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">camera_outdoor</i>
             </div>
@@ -26,7 +26,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white {{ request()->is('dashboard/internet') ? 'active bg-gradient-primary': '' }}" href="{{ route('internet.index')}}">
+          <a class="nav-link text-white {{ request()->is('dashboard/internet') ? 'active bg-gradient-info': '' }}" href="{{ route('internet.index')}}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">router</i>
             </div>
@@ -34,12 +34,24 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white {{ request()->is('dashboard/user') ? 'active bg-gradient-primary': '' }}" href="{{ route('user.index')}}">
+          <a class="nav-link text-white {{ request()->is('dashboard/user') ? 'active bg-gradient-innfo': '' }}" href="{{ route('user.index')}}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">people</i>
             </div>
             <span class="nav-link-text ms-1">User</span>
           </a>
+        </li>
+        <li class="nav-item">
+          
+          <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button class="nav-link ative btn bg-gradient-danger" type="submit">
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">logout</i>
+              </div>
+              <span class="nav-link-text pe-7">Keluar</span>
+            </button>
+        </form>
         </li>
       </ul>
     </div>

@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
 Route::get('login', [AuthController::class, 'login'])->name('login');
 Route::post('login', [AuthController::class, 'storeLogin']);
 Route::get('register', [AuthController::class, 'register'])->name('register');
@@ -26,6 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::resource('internet', InternetController::class);
             Route::resource('contact', ContactController::class);
             Route::resource('user', UserController::class);
+            Route::post('logout', [DashboardController::class, 'logout'])->name('logout');
         });
     });
 });

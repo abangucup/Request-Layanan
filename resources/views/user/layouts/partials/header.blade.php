@@ -20,9 +20,13 @@
         </li>
         <li><a href="{{ route('contact') }}" class="{{ request()->is('kontak') ? 'active' : ''}}">Kontak</a></li>
         @guest
-            
         <li><a href="{{ route('login') }}" class="get-a-quote">Login</a></li>
         @endguest
+        @auth
+          @if (auth()->user()->role == "admin")
+          <li><a href="{{ route('dashboard') }}" class="get-a-quote">Dashboard</a></li>
+          @endif
+        @endauth
       </ul>
 
 

@@ -5,7 +5,7 @@
         <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
           <h2 data-aos="fade-up">Layanan Web Hosting Kominfo Bonebolango</h2>
           <p data-aos="fade-up" data-aos-delay="100">Dalam upaya penigkatan sumber daya yang ada, KOMINFO MENYEDIAKAN LAYANAN WEB HOSTING
-            kepada seluruh OPD Wilah Kabupaten Bonebolango.
+            kepada seluruh OPD Wilayah Kabupaten Bonebolango.
           </p>
 
           <form action="#" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
