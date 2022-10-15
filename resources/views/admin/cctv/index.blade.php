@@ -47,8 +47,9 @@
                       $cctv->url}}</a></p>
                 </td>
                 <td class="align-middle text-center text-sm">
+                      
                   <span
-                    class="badge badge-sm {{ $cctv->status == 'active' ? 'bg-gradient-success' : 'bg-gradient-secondary' }}">{{
+                  class="badge badge-sm {{ $cctv->status == 'active' ? 'bg-gradient-success' : 'bg-gradient-secondary' }}">{{
                     $cctv->status}}</span>
                 </td>
                 <td class="align-middle text-center">

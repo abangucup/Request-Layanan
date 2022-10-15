@@ -23,8 +23,8 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white {{ request()->is('dashboard/cctv') ? 'active bg-gradient-info': '' }}"
-          href="{{ route('cctv.index')}}">
+        <a class="nav-link text-white {{ request()->is('dashboard/tanggapan') ? 'active bg-gradient-info': '' }}"
+          href="{{ route('tanggapan.index')}}">
           <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">forum</i>
           </div>
@@ -32,8 +32,8 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white {{ request()->is('dashboard/cctv') ? 'active bg-gradient-info': '' }}"
-          href="{{ route('cctv.index')}}">
+        <a class="nav-link text-white {{ request()->is('dashboard/opd') ? 'active bg-gradient-info': '' }}"
+          href="{{ route('opd.index')}}">
           <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">corporate_fare</i>
           </div>
@@ -78,15 +78,6 @@
             <span class="nav-link-text pe-7">Keluar</span>
           </button>
         </form>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white"
-          href="{{ route('ping')}}">
-          <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="material-icons opacity-10">people</i>
-          </div>
-          <span class="nav-link-text ms-1">Ping</span>
-        </a>
       </li>
     </ul>
   </div>

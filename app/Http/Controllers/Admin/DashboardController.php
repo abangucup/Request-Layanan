@@ -15,23 +15,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        // $users = User::all();
         $cctvs = Cctv::all();
         return view('admin.dashboard', compact(['cctvs']));
-    }
-
-    public function ping()
-    {
-        // $ip = '127.0.0.1';
-        // $port = '22';
-        $url = 'https://layanan.bonebolangokab.go.id';
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $data = curl_exec($ch);
-        $health = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        curl_close($ch);
-        dd($ch);
     }
 }

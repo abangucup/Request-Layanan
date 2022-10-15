@@ -18,18 +18,8 @@ class CctvController extends Controller
     public function index()
     {
         $cctvs = Cctv::all();
-        $url = 'https://layanan.bonebolangokab.go.id';
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $data = curl_exec($ch);
-        $health = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        curl_close($ch);
-        // dd($health);
-
         
-        return view('admin.cctv.index', compact(['cctvs', 'health']));
+        return view('admin.cctv.index', compact(['cctvs']));
     }
 
     public function store(Request $request)

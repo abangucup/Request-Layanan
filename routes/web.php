@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ResponseController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\User\OpdController;
 use App\Http\Controllers\User\PermintaanController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,8 +30,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => ['role:admin']], function () {
         Route::prefix('dashboard')->group(function () {
             Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-            Route::get('ping', [DashboardController::class, 'ping'])->name('ping');
             Route::resource('tanggapan', ResponseController::class);
+            Route::resource('opd', OpdController::class);
             Route::resource('cctv', CctvController::class);
             Route::resource('internet', InternetController::class);
             Route::resource('contact', ContactController::class);
