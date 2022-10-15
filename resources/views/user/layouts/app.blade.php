@@ -15,7 +15,6 @@
 
   @include('user.layouts.partials.header')
   
-  
   @yield('content')
   
   

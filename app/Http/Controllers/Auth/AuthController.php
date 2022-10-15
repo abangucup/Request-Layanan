@@ -8,10 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
+
+    // public function __construct()
+    // {
+    //     $this->middleware('guest');
+    // }
     public function login()
     {
         return view('auth.login');
@@ -48,4 +49,14 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
+    public function logout(Request $request)
+    {
+        Auth::logout();
+ 
+        request()->session()->invalidate();
+ 
+        request()->session()->regenerateToken();
+ 
+        return redirect('/');
+    }
 }

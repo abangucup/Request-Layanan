@@ -39,7 +39,7 @@
             <div class="row gy-4">
                 @foreach ($cctvs as $cctv)
                 <div class="col-lg-4">
-                    <iframe src="{{ $cctv->url}}" frameborder="0" width="400" allowfullscreen></iframe>
+                    <iframe src="{{ $cctv->url}}" frameborder="0" width="340" allowfullscreen></iframe>
                     <p class="text-center">{{ $cctv->lokasi}}</p>
                 </div>
                 @endforeach
