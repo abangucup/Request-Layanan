@@ -26,33 +26,37 @@
           <table class="table align-items-center mb-0">
             <thead>
               <tr>
-                <th class="text-center text-uppercase text-secondary font-weight-bolder">Lokasi</th>
-                <th class="text-center text-uppercase text-secondary font-weight-bolder">Nama</th>
-                <th class="text-center text-uppercase text-secondary font-weight-bolder">Url</th>
-                <th class="text-center text-uppercase text-secondary font-weight-bolder">Status</th>
-                <th class="text-center text-uppercase text-secondary font-weight-bolder">Action</th>
+                <th class="text-uppercase text-secondary font-weight-bolder">No</th>
+                <th class="text-uppercase text-secondary font-weight-bolder">Lokasi</th>
+                <th class="text-uppercase text-secondary font-weight-bolder">Nama</th>
+                <th class="text-uppercase text-secondary font-weight-bolder">Url</th>
+                <th class="text-uppercase text-secondary font-weight-bolder">Status</th>
+                <th class="text-uppercase text-secondary font-weight-bolder">Action</th>
               </tr>
             </thead>
             <tbody>
               @foreach ($cctvs as $cctv)
               <tr>
                 <td>
-                  <p class="text-center text-xs font-weight-bold mb-0">{{ $cctv->lokasi}}</p>
+                  <p class="ps-3 text-xs font-weight-bold mb-0">{{ $loop->iteration}}</p>
                 </td>
                 <td>
-                  <p class="text-center text-xs font-weight-bold mb-0">{{ $cctv->nama}}</p>
+                  <p class="ps-3 text-xs font-weight-bold mb-0">{{ $cctv->lokasi}}</p>
                 </td>
                 <td>
-                  <p class="text-center text-xs font-weight-bold mb-0"><a href="{{ $cctv->url}}" target="_blank">{{
+                  <p class="ps-3 text-xs font-weight-bold mb-0">{{ $cctv->nama}}</p>
+                </td>
+                <td>
+                  <p class="ps-3 text-xs font-weight-bold mb-0"><a href="{{ $cctv->url}}" target="_blank">{{
                       $cctv->url}}</a></p>
                 </td>
-                <td class="align-middle text-center text-sm">
+                <td class="align-middle ps-4 text-sm">
                       
                   <span
                   class="badge badge-sm {{ $cctv->status == 'active' ? 'bg-gradient-success' : 'bg-gradient-secondary' }}">{{
                     $cctv->status}}</span>
                 </td>
-                <td class="align-middle text-center">
+                <td class="align-middle ps-4 ">
                   <button class="btn btn-link text-secondary mb-0 dropdown" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     <span class="material-icons">more_vert</span>

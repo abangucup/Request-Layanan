@@ -30,6 +30,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => ['role:admin']], function () {
         Route::prefix('dashboard')->group(function () {
             Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+            // Route::get('ping', [InternetController::class, 'ping'])->name('ping');
             Route::resource('tanggapan', ResponseController::class);
             Route::resource('opd', OpdController::class);
             Route::resource('cctv', CctvController::class);

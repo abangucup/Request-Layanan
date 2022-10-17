@@ -6,7 +6,7 @@
 <link href="{{ asset('assets/admin/css/nucleo-icons.css')}}" rel="stylesheet" />
 <link href="{{ asset('assets/admin/css/nucleo-svg.css')}}" rel="stylesheet" />
 <!-- Font Awesome Icons -->
-<script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+
 <!-- Material Icons -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
 <!-- CSS Files -->
@@ -14,3 +14,7 @@
 <link href="{{ asset('assets/home/img/icon.png') }}" rel="icon">
 {{-- <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/admin/img/apple-icon.png')}}">
 <link rel="icon" type="image/png" href="{{ asset('assets/admin/img/favicon.png')}}"> --}}
+
+{{-- Darkapp css --}}
+{{-- <link href="{{ asset('assets/admin/css/core.css')}}" rel="stylesheet" />
+<link href="{{ asset('assets/admin/css/style.css')}}" rel="stylesheet" /> --}}

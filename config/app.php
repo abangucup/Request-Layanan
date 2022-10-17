@@ -198,6 +198,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         HealthServiceProvider::class,
 
+        RouterOS\Laravel\ServiceProvider::class,
+
     ],
 
     /*
