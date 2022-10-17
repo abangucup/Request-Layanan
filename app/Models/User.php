@@ -18,10 +18,14 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'profile',
         'nama',
         'username',
         'email',
         'password',
+        'opd_id',
+        'jabatan',
+        'no_hp',
         'role'
     ];
 
@@ -43,4 +47,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function opd()
+    {
+        $this->belongsTo(Opd::class);
+    }
 }

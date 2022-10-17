@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Opd extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'nama',
+        'bidang',
+        'deskripsi'
+    ];
+
+    public function user()
+    {
+        $this->hasMany(User::class);
+    }
 }

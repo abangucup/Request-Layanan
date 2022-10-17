@@ -18,7 +18,7 @@
         <li><a href="{{ route('cctv') }}" class="{{ request()->is('cctv') ? 'active' : ''}}">CCTV</a></li>
         {{-- <li><a href="{{ route('internet') }}" class="{{ request()->is('internet') ? 'active' : ''}}">Internet Publik</a>
         </li> --}}
-        <li><a href="{{ route('contact') }}" class="{{ request()->is('kontak') ? 'active' : ''}}">Kontak</a></li>
+        <li><a href="{{ route('contact') }}" class="{{ request()->is('contact') ? 'active' : ''}}">Kontak</a></li>
         @guest
         <li><a href="{{ route('login') }}" class="get-a-quote">Login</a></li>
         @endguest

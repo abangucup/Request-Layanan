@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('cctv', [CctvController::class, 'userindex'])->name('cctv');
-Route::get('contact', [ContactController::class, 'userindex'])->name('contact');
+Route::get('contact', [UserController::class, 'contact'])->name('contact');
 Route::get('permintaan', [PermintaanController::class, 'index'])->name('permintaan');
 
 Route::middleware(['guest'])->group(function () {

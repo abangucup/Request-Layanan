@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('opds', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            $table->string('bidang');
+            $table->string('deskripsi');
             $table->timestamps();
         });
     }
