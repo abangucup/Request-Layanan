@@ -19,8 +19,12 @@
           <h6 class="nav pe-4 text-white text-capitalize ps-3">
             <a class="btn btn-secondary me-3" data-bs-toggle="tab" href="#interface" role="tab"
               aria-controls="interface" aria-selected="true">Interface</a>
-            <a class="btn btn-secondary me-3" data-bs-toggle="tab" href="#iproutes" role="tab"
-              aria-controls="ip routes" aria-selected="false">IP Route</a>
+            <a class="btn btn-secondary me-3" data-bs-toggle="tab" href="#iproute" role="tab" aria-controls="iproute"
+              aria-selected="false">IP Route</a>
+            <a class="btn btn-secondary me-3" data-bs-toggle="tab" href="#queue" role="tab" aria-controls="queue"
+              aria-selected="false">Simple Queue</a>
+            <a class="btn btn-secondary me-3" data-bs-toggle="tab" href="#arp" role="tab" aria-controls="arp"
+              aria-selected="false">Client</a>
           </h6>
 
         </div>
@@ -114,7 +118,7 @@
             {{-- End Table Interface --}}
 
             {{-- Table IP ROute --}}
-            <table class="tab-pane fade table align-items-center mb-0" id="iproutes" role="tabpanel">
+            <table class="tab-pane fade table align-items-center mb-0" id="iproute" role="tabpanel">
               <thead>
                 <tr>
                   <th class="text-uppercase text-secondary font-weight-bolder">No</th>
@@ -189,6 +193,158 @@
               </tbody>
             </table>
             {{-- End Table IP Route --}}
+
+            {{-- Table Queue --}}
+            <table class="tab-pane fade table align-items-center mb-0" id="queue" role="tabpanel">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-secondary font-weight-bolder">No</th>
+                  <th class="text-uppercase text-secondary font-weight-bolder">Nama</th>
+                  <th class="text-uppercase text-secondary font-weight-bolder">Target</th>
+                  <th class="text-uppercase text-secondary font-weight-bolder">Parent</th>
+                  <th class="text-uppercase text-secondary font-weight-bolder">Type</th>
+                  <th class="text-uppercase text-secondary font-weight-bolder">Upload / Download</th>
+                  <th class="text-uppercase text-secondary font-weight-bolder">Aktif</th>
+                  {{-- <th class="text-uppercase text-secondary font-weight-bolder text-end">Action</th> --}}
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($queues as $queue)
+
+                <tr>
+
+                  <td>
+                    <p class="ps-3 text-xs font-weight-bold mb-0">{{ $loop->iteration}}</p>
+                  </td>
+                  <td>
+                    <p class="ps-3 text-xs font-weight-bold mb-0">{{ $queue['name']}}</p>
+                  </td>
+                  <td>
+                    <p class="ps-3 text-xs font-weight-bold mb-0">{{ $queue['target'] ?? ''}}</p>
+                  </td>
+                  <td>
+                    <p class="ps-3 text-xs font-weight-bold mb-0">{{ $queue['parent'] ?? ''}}</p>
+                  </td>
+                  <td>
+                    <p class="ps-3 text-xs font-weight-bold mb-0">{{ $queue['queue'] ?? ''}}</p>
+                  </td>
+                  <td>
+                    <p class="ps-3 text-xs font-weight-bold mb-0">{{ $queue['max-limit'] }} Byte</p>
+                  </td>
+                  <td class="align-middle ps-4 text-sm">
+                    <span
+                      class="badge badge-sm {{ $queue['disabled'] == 'false' ? 'bg-gradient-success' : 'bg-gradient-secondary' }}">{{
+                      $queue['disabled'] == 'false' ? 'Aktif' : 'Tidak Aktif'}}</span>
+                  </td>
+                  {{-- <td class="align-middle ps-4 ">
+                    <button class="btn btn-link text-secondary mb-0 dropdown" data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                      <span class="material-icons">more_vert</span>
+                    </button>
+                    <ul class="dropdown-menu px-2 py-3" aria-labelledby="dropdownMenuButton">
+                      <li class="nav-item d-flex align-items-center">
+                        <a href="" class="nav-link text-body font-weight-bold px-0">
+                          <i class="fa fa-eye me-sm-1"></i>
+                          <span class="d-sm-inline d-none">Lihat</span>
+                        </a>
+                      </li>
+                      <li class="nav-item d-flex align-items-center">
+                        <a href="" data-bs-toggle="modal" data-bs-target=""
+                          class="nav-link text-body font-weight-bold px-0">
+                          <i class="fa fa-pencil-square-o me-sm-1"></i>
+                          <span class="d-sm-inline d-none">Edit</span>
+                        </a>
+                      </li>
+                      <li class="nav-item d-flex align-items-center">
+                        <form action="" method="POST">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" class="dropdown-item nav-link text-body font-weight-bold px-0">
+                            <i class="fa fa-trash me-sm-1"></i>
+                            <span class="d-sm-inline d-none">Hapus</span>
+                          </button>
+                        </form>
+                      </li>
+                    </ul>
+                  </td> --}}
+
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+            {{-- End Table Queue --}}
+
+            {{-- Table Arp --}}
+            <table class="tab-pane fade table align-items-center mb-0" id="arp" role="tabpanel">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-secondary font-weight-bolder">No</th>
+                  <th class="text-uppercase text-secondary font-weight-bolder">IP Address</th>
+                  <th class="text-uppercase text-secondary font-weight-bolder">MAC Address</th>
+                  <th class="text-uppercase text-secondary font-weight-bolder">Interface</th>
+                  <th class="text-uppercase text-secondary font-weight-bolder">Aktif</th>
+                  {{-- <th class="text-uppercase text-secondary font-weight-bolder text-end">Action</th> --}}
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($arps as $arp)
+
+                <tr>
+
+                  <td>
+                    <p class="ps-3 text-xs font-weight-bold mb-0">{{ $loop->iteration}}</p>
+                  </td>
+                  <td>
+                    <p class="ps-3 text-xs font-weight-bold mb-0">{{ $arp['address']}}</p>
+                  </td>
+                  <td>
+                    <p class="ps-3 text-xs font-weight-bold mb-0">{{ $arp['mac-address'] ?? ''}}</p>
+                  </td>
+                  <td>
+                    <p class="ps-3 text-xs font-weight-bold mb-0">{{ $arp['interface']}}</p>
+                  </td>
+                  <td class="align-middle ps-4 text-sm">
+                    <span
+                      class="badge badge-sm {{ $arp['complete'] == 'true' ? 'bg-gradient-success' : 'bg-gradient-secondary' }}">{{
+                      $arp['complete'] == 'true' ? 'Aktif' : 'Tidak Aktif'}}</span>
+                  </td>
+                  {{-- <td class="align-middle ps-4 ">
+                    <button class="btn btn-link text-secondary mb-0 dropdown" data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                      <span class="material-icons">more_vert</span>
+                    </button>
+                    <ul class="dropdown-menu px-2 py-3" aria-labelledby="dropdownMenuButton">
+                      <li class="nav-item d-flex align-items-center">
+                        <a href="" class="nav-link text-body font-weight-bold px-0">
+                          <i class="fa fa-eye me-sm-1"></i>
+                          <span class="d-sm-inline d-none">Lihat</span>
+                        </a>
+                      </li>
+                      <li class="nav-item d-flex align-items-center">
+                        <a href="" data-bs-toggle="modal" data-bs-target=""
+                          class="nav-link text-body font-weight-bold px-0">
+                          <i class="fa fa-pencil-square-o me-sm-1"></i>
+                          <span class="d-sm-inline d-none">Edit</span>
+                        </a>
+                      </li>
+                      <li class="nav-item d-flex align-items-center">
+                        <form action="" method="POST">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" class="dropdown-item nav-link text-body font-weight-bold px-0">
+                            <i class="fa fa-trash me-sm-1"></i>
+                            <span class="d-sm-inline d-none">Hapus</span>
+                          </button>
+                        </form>
+                      </li>
+                    </ul>
+                  </td> --}}
+
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+            {{-- End Table Arp --}}
 
           </div>
         </div>

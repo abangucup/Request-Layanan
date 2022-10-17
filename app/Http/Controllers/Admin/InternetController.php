@@ -8,10 +8,6 @@ use RouterOS\Query;
 
 class InternetController extends Controller
 {
-    public function userindex()
-    {
-        return view('user.internet');
-    }
 
     public function index()
     {
@@ -28,7 +24,15 @@ class InternetController extends Controller
 
         $iproute = new Query('/ip/route/print');
         $iproutes = $client->query($iproute)->read(); 
-        // dd($iproutes);
-        return view('admin.internet.index', compact(['interfaces', 'iproutes']));
+
+        $queue = new Query('/queue/simple/print');
+        $queues = $client->query($queue)->read(); 
+
+        $arp = (new Query('/ip/arp/print'));
+        $arps = $client->query($arp)->read(); 
+        // dd(count($interfaces));
+        // dd($arps);
+
+        return view('admin.internet.index', compact(['interfaces', 'iproutes', 'queues', 'arps']));
     }
 }
