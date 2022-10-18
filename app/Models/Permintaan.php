@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Permintaan extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'domain',
+        'program',
+        'keterangan',
+        'user',
+        'pass',
+        'user_id'
+    ];
+
+    public function user()
+    {
+        $this->belongsTo(User::class);
+    }
 }

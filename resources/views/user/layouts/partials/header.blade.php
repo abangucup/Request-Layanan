@@ -12,7 +12,7 @@
     <nav id="navbar" class="navbar">
       <ul>
         <li><a href="{{ route('home') }}" class="{{ request()->is('/') ? 'active' : ''}}">Home</a></li>
-        <li><a href="{{ route('permintaan') }}"
+        <li><a href="{{ route('getrequest') }}"
             class="{{ request()->is('permintaan') ? 'active' : ''}}">Permintaan</a>
         </li>
         <li><a href="{{ route('cctv') }}" class="{{ request()->is('cctv') ? 'active' : ''}}">CCTV</a></li>

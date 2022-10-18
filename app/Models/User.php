@@ -52,4 +52,9 @@ class User extends Authenticatable
     {
         $this->belongsTo(Opd::class);
     }
+
+    public function permintaan()
+    {
+        $this->hasMany(Permintaan::class);
+    }
 }

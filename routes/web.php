@@ -16,7 +16,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('cctv', [CctvController::class, 'userindex'])->name('cctv');
 Route::get('contact', [UserController::class, 'contact'])->name('contact');
-Route::get('permintaan', [PermintaanController::class, 'index'])->name('permintaan');
+Route::get('getrequest', [PermintaanController::class, 'getrequest'])->name('getrequest');
 
 Route::middleware(['guest'])->group(function () {
     Route::get('login', [AuthController::class, 'login'])->name('login');
@@ -34,11 +34,12 @@ Route::group(['middleware' => 'auth'], function () {
             Route::resource('opd', OpdController::class);
             Route::resource('cctv', CctvController::class);
             Route::resource('internet', InternetController::class);
-            Route::resource('contact', ContactController::class);
+            Route::resource('contact', UserController::class);
             Route::resource('user', UserController::class);
         });
     });
     Route::group(['middleware' => ['role:opd']], function () {
+        Route::resource('permintaan', PermintaanController::class);
     });
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 });

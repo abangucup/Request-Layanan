@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('permintaans', function (Blueprint $table) {
             $table->id();
+            $table->string('domain');
+            $table->string('program');
+            $table->string('keterangan');
+            $table->string('user');
+            $table->string('pass');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
