@@ -49,7 +49,7 @@
           <span class="nav-link-text ms-1">CCTV</span>
         </a>
       </li>
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link text-white {{ request()->is('dashboard/internet') ? 'active bg-gradient-info': '' }}"
           href="{{ route('internet.index')}}">
           <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -57,7 +57,7 @@
           </div>
           <span class="nav-link-text ms-1">Internet Publik</span>
         </a>
-      </li>
+      </li> --}}
       <li class="nav-item">
         <a class="nav-link text-white {{ request()->is('dashboard/user') ? 'active bg-gradient-innfo': '' }}"
           href="{{ route('user.index')}}">

@@ -58,15 +58,16 @@
             </div>
           </div><!-- End Stats Item -->
 
-          <div class="col-lg-2 col-6">
+          {{-- <div class="col-lg-2 col-6">
             <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="{{ $client}}" data-purecounter-duration="1"
+              <span data-purecounter-start="0" data-purecounter-end="{{ $client ?? ''}}" data-purecounter-duration="1"
                 class="purecounter"></span>
               <a href="{{route('permintaan')}}" class="text-white">
                 <p>Client Aktif</p>
               </a>
             </div>
-          </div><!-- End Stats Item -->
+          </div> --}}
+          <!-- End Stats Item -->
 
         </div>
       </div>

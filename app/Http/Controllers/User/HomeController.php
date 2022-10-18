@@ -17,15 +17,17 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $client = new Client([
-            'host' => '103.153.136.74',
-            'user' => 'ucup',
-            'pass' => 'salman13',
-            'port' => 8828,
-        ]);
+        $client = null;
+        // $client = new Client([
+        //     'host' => '103.153.136.7',
+        //     'user' => 'ucup',
+        //     'pass' => 'salman13',
+        //     'port' => 8828,
+        // ]);
+        // $arp = (new Query('/ip/arp/print'))
+        //     ->where('complete', 'true');
+        // $client = count($client->query($arp)->read());
 
-        $arp = (new Query('/ip/arp/print'));
-        $client = count($client->query($arp)->read()); 
 
         $website = Website::all()->count();
         $user = User::where('role', 'opd')->count();

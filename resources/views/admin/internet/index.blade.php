@@ -202,7 +202,6 @@
                   <th class="text-uppercase text-secondary font-weight-bolder">Nama</th>
                   <th class="text-uppercase text-secondary font-weight-bolder">Target</th>
                   <th class="text-uppercase text-secondary font-weight-bolder">Parent</th>
-                  <th class="text-uppercase text-secondary font-weight-bolder">Type</th>
                   <th class="text-uppercase text-secondary font-weight-bolder">Upload / Download</th>
                   <th class="text-uppercase text-secondary font-weight-bolder">Aktif</th>
                   {{-- <th class="text-uppercase text-secondary font-weight-bolder text-end">Action</th> --}}
@@ -224,9 +223,6 @@
                   </td>
                   <td>
                     <p class="ps-3 text-xs font-weight-bold mb-0">{{ $queue['parent'] ?? ''}}</p>
-                  </td>
-                  <td>
-                    <p class="ps-3 text-xs font-weight-bold mb-0">{{ $queue['queue'] ?? ''}}</p>
                   </td>
                   <td>
                     <p class="ps-3 text-xs font-weight-bold mb-0">{{ $queue['max-limit'] }} Byte</p>
