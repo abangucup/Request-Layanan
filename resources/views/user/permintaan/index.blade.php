@@ -33,42 +33,43 @@
     <!-- ======= Permintaan Section ======= -->
     <section id="contact" class="contact">
         <div class="container" data-aos="fade-up">
-            <div class="col-lg-8">
-                <form action="{{ route('permintaan.store')}}" method="POST" >
-                    @csrf
-                    <div class="row">
-                        <div class="col-md-3 form-group">
-                            <input type="text" name="domain" class="form-control" placeholder="Nama Domain Yang Akan Digunakan"
-                                required>
-                                
-                        </div>
-                        <div class="col-md-2 form-group">
-                            <input type="text" name="domain" class="form-control ms-0" placeholder="Nama Domain Yang Akan Digunakan"
-                                required>
-                        </div>
-                        <div class="col-md-6 form-group mt-3 mt-md-0">
-                            <input type="text" class="form-control" name="program" id="" placeholder="Bahasa Pemrograman / Framwork"
-                                required>
-                        </div>
-                        <div class="col-md-6 form-group mt-3">
-                            <input type="text" class="form-control" name="user" placeholder="Username Untuk Login Ke Panel"
-                                required>
-                        </div>
-                        <div class="col-md-6 form-group mt-3">
-                            <input type="text" class="form-control" name="pass" placeholder="Password Untuk Login Ke Panel"
-                                required>
-                        </div>
+            <div class="row gy-4 mt-4 align-items-center justify-content-center">
+                <div class="col-lg-8">
+                    @if (session('status'))
+                    <div class="text-danger mb-2">{{ session('status')}}
                     </div>
+                    @endif
+                    <form action="{{ route('permintaan.store')}}" method="POST" role="form">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <input type="text" name="domain" class="form-control" placeholder="Nama Domain"
+                                    required>
+                            </div>
+                            <div class="col-md-6 form-group mt-3 mt-md-0">
+                                <input type="text" class="form-control" name="program"
+                                    placeholder="Framework(Laravel/Native/Dsb)" required>
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="text" class="form-control" name="userhost" placeholder="Username CPANEL" required>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="text" class="form-control" name="passhost" placeholder="Password CPANEL" required>
+                        </div>
+                        <div class="form-group mt-3">
+                            <textarea class="form-control" name="keterangan" rows="5"
+                                placeholder="Alasan Kebutuhan Permintaan Hosting" required></textarea>
+                        </div>
+                            
+                            
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary mt-3">Kirim Permintaan</button>
+                        </div>
+                    </form>
                     
-                    <div class="form-group mt-3">
-                        <label for="">OK</label>
-                        <textarea class="form-control" name="keterangan" rows="5" placeholder="Alasan Kebutuhan Melakukan Permintaan Hosting"
-                            required></textarea>
-                    </div>
-                    <button class="mt-3 text-center btn btn-primary" type="submit">Kirim</button>
-                </form>
-            </div><!-- End Contact Form -->
-
+                </div>
+            </div>
         </div>
     </section><!-- End Contact Section -->
 

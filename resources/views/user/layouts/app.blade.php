@@ -14,6 +14,7 @@
 <body>
 
   @include('user.layouts.partials.header')
+  @include('sweetalert::alert')
   
   @yield('content')
   

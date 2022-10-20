@@ -13,17 +13,42 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form role="form" class="text-start">
+                    <form role="form" class="text-start" action="{{ route('register')}}" method="POST">
+                        @csrf
+                        <div class="input-group input-group-outline my-3">
+                            <label class="form-label">Nama</label>
+                            <input type="text" name="nama" class="form-control">
+                        </div>
                         <div class="input-group input-group-outline my-3">
                             <label class="form-label">Email</label>
-                            <input type="email" class="form-control">
+                            <input type="email" name="email" class="form-control">
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <label class="form-label">Username</label>
+                            <input type="text" name="username" class="form-control">
                         </div>
                         <div class="input-group input-group-outline mb-3">
                             <label class="form-label">Password</label>
-                            <input type="password" class="form-control">
+                            <input type="password" name="password" class="form-control">
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <label class="form-label">Nomor HP / WA</label>
+                            <input type="text" name="no_hp" class="form-control">
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <label class="form-label">Jabatan</label>
+                            <input type="text" name="jabatan" class="form-control">
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <label class="form-label">Jenis Kelamin</label>
+                            <input type="text" name="jk" class="form-control">
+                        </div>
+                        <div class="input-group input-group-outline my-3">
+                            <label class="form-label">Alamat</label>
+                            <input type="text" name="alamat" class="form-control">
                         </div>
                         <div class="text-center">
-                            <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2">Daftar</button>
+                            <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Daftar</button>
                         </div>
                     </form>
                 </div>

@@ -23,16 +23,16 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white {{ request()->is('dashboard/tanggapan') ? 'active bg-gradient-info': '' }}"
-          href="{{ route('tanggapan.index')}}">
+        <a class="nav-link text-white {{ request()->is('dashboard/permintaan') ? 'active bg-gradient-info': '' }}"
+          href="{{ route('listpermintaan')}}">
           <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">forum</i>
           </div>
-          <span class="nav-link-text ms-1">Tanggapan</span>
+          <span class="nav-link-text ms-1">Permintaan</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white {{ request()->is('dashboard/opd') ? 'active bg-gradient-info': '' }}"
+        <a class="nav-link text-white {{ request()->is('opd') ? 'active bg-gradient-info': '' }}"
           href="{{ route('opd.index')}}">
           <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">corporate_fare</i>
@@ -59,7 +59,7 @@
         </a>
       </li> --}}
       <li class="nav-item">
-        <a class="nav-link text-white {{ request()->is('dashboard/user') ? 'active bg-gradient-innfo': '' }}"
+        <a class="nav-link text-white {{ request()->is('dashboard/user') ? 'active bg-gradient-info': '' }}"
           href="{{ route('user.index')}}">
           <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">people</i>
@@ -71,8 +71,8 @@
 
         <form action="{{ route('logout') }}" method="POST">
           @csrf
-          <button class="nav-link ative btn bg-gradient-danger" type="submit">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+          <button class="nav-link ative btn bg-gradient-danger mt-2" type="submit">
+            <div class="text-white text-center me-4 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">logout</i>
             </div>
             <span class="nav-link-text pe-7">Keluar</span>

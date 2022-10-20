@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('permintaans', function (Blueprint $table) {
             $table->id();
-            $table->string('domain');
+            $table->string('domain')->unique();
             $table->string('program');
             $table->string('keterangan');
-            $table->string('user');
-            $table->string('pass');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('userhost')->unique();
+            $table->string('passhost');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

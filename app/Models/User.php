@@ -18,14 +18,9 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'profile',
-        'nama',
         'username',
-        'email',
         'password',
-        'opd_id',
-        'jabatan',
-        'no_hp',
+        'pemohon_id',
         'role'
     ];
 
@@ -48,13 +43,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function opd()
+    public function pemohon()
     {
-        $this->belongsTo(Opd::class);
-    }
-
-    public function permintaan()
-    {
-        $this->hasMany(Permintaan::class);
+        return $this->belongsTo(Pemohon::class);
     }
 }

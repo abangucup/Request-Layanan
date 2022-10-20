@@ -22,6 +22,7 @@ Route::middleware(['guest'])->group(function () {
     Route::get('login', [AuthController::class, 'login'])->name('login');
     Route::post('login', [AuthController::class, 'storeLogin']);
     Route::get('register', [AuthController::class, 'register'])->name('register');
+    Route::post('register', [AuthController::class, 'storeRegis']);
 });
 
 // Admin
@@ -29,9 +30,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => ['role:admin']], function () {
         Route::prefix('dashboard')->group(function () {
             Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-            // Route::get('ping', [InternetController::class, 'ping'])->name('ping');
+            Route::get('permintaan', [ResponseController::class, 'listpermintaan'])->name('listpermintaan');
             Route::resource('tanggapan', ResponseController::class);
-            Route::resource('opd', OpdController::class);
             Route::resource('cctv', CctvController::class);
             Route::resource('internet', InternetController::class);
             Route::resource('contact', UserController::class);
@@ -41,6 +41,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => ['role:opd']], function () {
         Route::resource('permintaan', PermintaanController::class);
     });
+    Route::resource('opd', OpdController::class);
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 });
 

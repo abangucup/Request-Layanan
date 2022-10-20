@@ -16,8 +16,16 @@ class OpdSeeder extends Seeder
     public function run()
     {
         $opds = [
-            ['nama' => 'Komunikasi Dan Informasika', 'bidang' => 'Informatika', 'deskripsi' => 'Bertugas Melayani masyarakat maupun OPD dalam hal INTERNET, CCTV, HOSTING'],
-            ['nama' => 'Komunikasi Dan Informasika', 'bidang' => 'Komunikasi', 'deskripsi' => 'Bertugas dalam meliput serta penyampian berita atau informasi kepada masyarakat']
+            [
+                'nama' => 'Komunikasi Dan Informasika',
+                'bidang' => 'Informatika',
+                'deskripsi' => 'Bertugas Melayani masyarakat maupun OPD dalam hal INTERNET, CCTV, HOSTING'
+            ],
+            [
+                'nama' => 'Komunikasi Dan Informasika',
+                'bidang' => 'Komunikasi',
+                'deskripsi' => 'Bertugas dalam meliput serta penyampian berita atau informasi kepada masyarakat'
+            ]
         ];
 
         foreach ($opds as $opd) {

@@ -15,11 +15,11 @@ class Permintaan extends Model
         'keterangan',
         'user',
         'pass',
-        'user_id'
+        'pemohon_id'
     ];
 
-    public function user()
+    public function pemohon()
     {
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 }

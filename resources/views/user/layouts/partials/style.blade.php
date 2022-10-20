@@ -1,3 +1,5 @@
+  {{-- Swetalert --}}
+  <link rel="stylesheet" href="sweetalert2.min.css">
   <!-- Favicons -->
   <link href="{{ asset('assets/home/img/icon.png') }}" rel="icon">
   <!-- <link href="{{ asset('assets/home/img/apple-touch-icon.png') }}" rel="apple-touch-icon"> -->
