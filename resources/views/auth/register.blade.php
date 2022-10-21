@@ -36,10 +36,6 @@
                             <input type="text" name="no_hp" class="form-control">
                         </div>
                         <div class="input-group input-group-outline my-3">
-                            <label class="form-label">Jabatan</label>
-                            <input type="text" name="jabatan" class="form-control">
-                        </div>
-                        <div class="input-group input-group-outline my-3">
                             <label class="form-label">Jenis Kelamin</label>
                             <input type="text" name="jk" class="form-control">
                         </div>

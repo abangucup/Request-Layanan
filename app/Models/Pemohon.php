@@ -16,17 +16,16 @@ class Pemohon extends Model
         'nama',
         'username',
         'password',
-        'opd_id',
+        'bidang_id',
         'alamat',
-        'jabatan',
         'no_hp',
         'jk',
         'email',
     ];
 
-    public function opd()
+    public function bidang()
     {
-        return $this->belongsTo(Opd::class);
+        return $this->belongsTo(Bidang::class);
     }
 
     public function permintaan()

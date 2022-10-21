@@ -22,9 +22,8 @@ return new class extends Migration
             $table->string('password');
             $table->string('alamat');
             $table->string('jk');
-            $table->string('jabatan');
             $table->string('no_hp');
-            $table->foreignId('opd_id')->nullable()->constrained();
+            $table->foreignId('bidang_id')->nullable()->constrained();
             $table->timestamps();
         });
     }

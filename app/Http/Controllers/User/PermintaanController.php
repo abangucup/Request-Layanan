@@ -18,6 +18,11 @@ class PermintaanController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
+        if(auth()->user()->pemohon->bidang == null)
+        {
+            alert()->info('Bidang Kosong', 'Lengkapi Data Anda');
+            return to_route('bidang.index');
+        }
         $validator = Validator::make($request->all(), [
             'domain' => 'required|unique:permintaans',
             'program' => 'required',

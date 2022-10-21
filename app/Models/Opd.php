@@ -11,12 +11,11 @@ class Opd extends Model
 
     protected $fillable = [
         'nama',
-        'bidang',
-        'deskripsi'
+        'deskripsi',
     ];
 
-    public function user()
+    public function bidang()
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(Bidang::class);
     }
 }

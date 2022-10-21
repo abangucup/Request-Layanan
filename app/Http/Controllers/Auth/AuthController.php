@@ -37,11 +37,12 @@ class AuthController extends Controller
             if ($user == 'admin') {
                 alert()->success('Berhasil Login', 'Selamat Datang ' . auth()->user()->nama . ' Anda Sebagai ' . $user);
                 return redirect()->route('dashboard');
+            } elseif (auth()->user()->pemohon->bidang_id == null) {
+                alert()->info('Update Data', 'Harap Update Biodata Terlebih Dahulu');
+                return redirect()->route('bidang.index');
             }
-            // elseif ($user == 'opd') {
-            //     return redirect()->route('home');
-            // }
-            return redirect()->route('home');
+            return to_route('home');
+            
         }
 
         return back()->with('status', 'Username atau Password salah');
@@ -63,7 +64,6 @@ class AuthController extends Controller
             'username' => 'required|unique:pemohons',
             'password' => 'required',
             'no_hp' => 'required',
-            'jabatan' => 'required',
             'jk' => 'required',
             'alamat' => 'required',
         ]);
@@ -74,15 +74,12 @@ class AuthController extends Controller
         }
 
         $pemohon = new Pemohon();
-        // $pemohon->profile => $request->profile
         $pemohon->nama = $request->nama;
         $pemohon->email = $request->email;
         $pemohon->username = $request->username;
         $pemohon->password = Hash::make($request->password);
         $pemohon->no_hp = $request->no_hp;
-        $pemohon->jabatan = $request->jabatan;
-        // $pemohon->opd_id = $request->opd_id;
-        $pemohon->jk = $request->jabatan;
+        $pemohon->jk = $request->jk;
         $pemohon->alamat = $request->alamat;
 
         $pemohon->save();

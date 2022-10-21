@@ -18,6 +18,20 @@
                         </span>
                     </button>
                     <div class="collapse navbar-collapse" id="navigation">
+                        @auth
+                        <ul class="navbar-nav mx-auto">
+                        </ul>
+                        <ul class="navbar-nav d-lg-block">
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center me-2 active" aria-current="page"
+                                    href="{{ route('home')}}">
+                                    <i class="fa fa-user-circle opacity-6 text-dark me-1"></i>
+                                    {{ auth()->user()->pemohon->nama}}
+                                </a>
+                            </li>
+                          </ul>
+                        @endauth
+                        @guest
                         <ul class="navbar-nav mx-auto">
                             <li class="nav-item">
                                 <a class="nav-link d-flex align-items-center me-2 active" aria-current="page"
@@ -27,7 +41,6 @@
                                 </a>
                             </li>
                             </li>
-
                         </ul>
                         <ul class="navbar-nav d-lg-block d-none">
                             <li class="nav-item">
@@ -46,6 +59,7 @@
                                 </a>
                             </li>
                         </ul>
+                        @endguest
                     </div>
                 </div>
             </nav>
