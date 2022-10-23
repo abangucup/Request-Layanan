@@ -55,7 +55,7 @@
                                     <h6 class="mb-0">Data Pribadi</h6>
                                 </div>
                                 <div class="col-md-4 text-end">
-                                    <a href="javascript:;">
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#editprofile-{{ $pemohon->id}}">
                                         <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip"
                                             data-bs-placement="top" title="Edit Profile"></i>
                                     </a>
@@ -69,32 +69,75 @@
                             </p>
                             <ul class="list-group">
                                 <li class="list-group-item border-0 ps-0 pt-0 text-sm">
-                                    <strong class="text-dark">Nama:</strong> &nbsp; {{auth()->user()->pemohon->nama}}
+                                    <strong class="text-dark">Nama:</strong> &nbsp; {{$pemohon->nama}}
                                 </li>
                                 <li class="list-group-item border-0 ps-0 text-sm">
-                                    <strong class="text-dark">Email:</strong> &nbsp; {{auth()->user()->pemohon->email}}
+                                    <strong class="text-dark">Email:</strong> &nbsp; {{$pemohon->email}}
                                 </li>
                                 <li class="list-group-item border-0 ps-0 text-sm">
-                                    <strong class="text-dark">No HP / WA:</strong> &nbsp; {{auth()->user()->pemohon->no_hp}}
+                                    <strong class="text-dark">No HP / WA:</strong> &nbsp;
+                                    {{$pemohon->no_hp}}
                                 </li>
                                 <li class="list-group-item border-0 ps-0 text-sm">
-                                    <strong class="text-dark">Jenis Kelamin:</strong> &nbsp; {{auth()->user()->pemohon->jk}}
+                                    <strong class="text-dark">Jenis Kelamin:</strong> &nbsp;
+                                    {{$pemohon->jk}}
                                 </li>
                                 <li class="list-group-item border-0 ps-0 text-sm">
-                                    <strong class="text-dark">Alamat:</strong> &nbsp; {{auth()->user()->pemohon->alamat}}
+                                    <strong class="text-dark">Alamat:</strong> &nbsp;
+                                    {{$pemohon->alamat}}
                                 </li>
                                 <li class="list-group-item border-0 ps-0 text-sm">
-                                    <strong class="text-dark">OPD:</strong> &nbsp; {{auth()->user()->pemohon->bidang->opd->nama}}
+                                    <strong class="text-dark">OPD:</strong> &nbsp;
+                                    {{$pemohon->bidang->opd->nama}}
                                 </li>
                             </ul>
                         </div>
+                        {{-- Modal Edit Profile --}}
+                        <div class="modal fade" id="editprofile-{{$pemohon->id}}" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <form action="{{ route('pemohon.update', $pemohon->id)}}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <div class="modal-header">
+                                            <h5 class="modal-title font-weight-normal" id="exampleModalLabel">Edit Profile
+                                                {{$pemohon->nama}}</h5>
+                                            <button type="button" class="btn-close text-dark me-2" data-bs-dismiss="modal"
+                                                aria-label="Close">
+                                                <span aria-hidden="true"><h2 style="line-height: 0">&times;</h2></span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            {{-- ISI FORM --}}
+                                            <div class="input-group input-group-static mb-4">
+                                                <label>Lokasi CCTV</label>
+                                                <input type="text" class="form-control" name="lokasi"
+                                                    value="{{ $pemohon->bidang->bidang}}" required>
+                                            </div>
+
+                                            {{-- END ISI FORM --}}
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn bg-gradient-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn bg-gradient-primary">Edit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- End Modal Edit Profile --}}
                     </div>
                 </div>
                 <div class="col-12 col-xl-4">
                     <div class="card card-plain h-100">
                         <div class="card-header pb-0 p-3">
-                            <h6 class="mb-0">Admin Layanan Web Hosting</h6>
+                            <h6 class="mb-0">Tanggapan Petugas</h6>
                         </div>
+                        @foreach ($tanggapans as $tanggapan)
                         <div class="card-body p-3">
                             <ul class="list-group">
                                 <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2 pt-0">
@@ -109,53 +152,9 @@
                                     <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto w-25 w-md-auto"
                                         href="javascript:;">Reply</a>
                                 </li>
-                                <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                                    <div class="avatar me-3">
-                                        <img src="../assets/img/marie.jpg" alt="kal" class="border-radius-lg shadow">
-                                    </div>
-                                    <div class="d-flex align-items-start flex-column justify-content-center">
-                                        <h6 class="mb-0 text-sm">Anne Marie</h6>
-                                        <p class="mb-0 text-xs">Awesome work, can you..</p>
-                                    </div>
-                                    <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto w-25 w-md-auto"
-                                        href="javascript:;">Reply</a>
-                                </li>
-                                <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                                    <div class="avatar me-3">
-                                        <img src="../assets/img/ivana-square.jpg" alt="kal"
-                                            class="border-radius-lg shadow">
-                                    </div>
-                                    <div class="d-flex align-items-start flex-column justify-content-center">
-                                        <h6 class="mb-0 text-sm">Ivanna</h6>
-                                        <p class="mb-0 text-xs">About files I can..</p>
-                                    </div>
-                                    <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto w-25 w-md-auto"
-                                        href="javascript:;">Reply</a>
-                                </li>
-                                <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                                    <div class="avatar me-3">
-                                        <img src="../assets/img/team-4.jpg" alt="kal" class="border-radius-lg shadow">
-                                    </div>
-                                    <div class="d-flex align-items-start flex-column justify-content-center">
-                                        <h6 class="mb-0 text-sm">Peterson</h6>
-                                        <p class="mb-0 text-xs">Have a great afternoon..</p>
-                                    </div>
-                                    <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto w-25 w-md-auto"
-                                        href="javascript:;">Reply</a>
-                                </li>
-                                <li class="list-group-item border-0 d-flex align-items-center px-0">
-                                    <div class="avatar me-3">
-                                        <img src="../assets/img/team-3.jpg" alt="kal" class="border-radius-lg shadow">
-                                    </div>
-                                    <div class="d-flex align-items-start flex-column justify-content-center">
-                                        <h6 class="mb-0 text-sm">Nick Daniel</h6>
-                                        <p class="mb-0 text-xs">Hi! I need more information..</p>
-                                    </div>
-                                    <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto w-25 w-md-auto"
-                                        href="javascript:;">Reply</a>
-                                </li>
                             </ul>
                         </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-12 mt-4">
@@ -164,27 +163,34 @@
                         <p class="text-sm">List Data Permintaan Web Hosting</p>
                     </div>
                     <div class="row">
+                        <?php $no = 1; ?>
+                        @foreach ($permintaans as $permintaan)
+                        @if ($permintaan->pemohon->id == auth()->user()->pemohon->id)
+
                         <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
                             <div class="card card-blog card-plain">
                                 <div class="card-header p-0 mt-n4 mx-3">
                                     <a class="d-block shadow-xl border-radius-xl">
-                                        <img src="https://bonebolangokab.go.id/assets/img/foto_bupati.png"
-                                            alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                                        {{-- <img src="https://bonebolangokab.go.id/assets/img/foto_bupati.png"
+                                            alt="img-blur-shadow" class="img-fluid shadow border-radius-xl"> --}}
                                     </a>
                                 </div>
                                 <div class="card-body p-3">
-                                    <p class="mb-0 text-sm">Project #4</p>
+                                    <p class="mb-0 text-sm">Permintaan #{{ $no++}}</p>
                                     <a href="javascript:;">
                                         <h5>
-                                            Gothic
+                                            Domain : {{ $permintaan->domain}}
                                         </h5>
                                     </a>
+                                    <span>Keterangan :</span>
                                     <p class="mb-4 text-sm">
-                                        Why would anyone pick blue over pink? Pink is obviously a better color.
+                                        {{ $permintaan->keterangan}}
                                     </p>
                                 </div>
                             </div>
                         </div>
+                        @endif
+                        @endforeach
                     </div>
                 </div>
             </div>

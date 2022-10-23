@@ -42,7 +42,7 @@ class PermintaanController extends Controller
         $permintaan->userhost = $request->userhost;
         $permintaan->passhost = $request->passhost;
         $permintaan->keterangan = $request->keterangan;
-        $permintaan->user_id = auth()->user()->id;
+        $permintaan->pemohon_id = auth()->user()->pemohon->id;
 
         $permintaan->save();
 

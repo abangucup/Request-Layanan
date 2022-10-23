@@ -15,6 +15,14 @@ return new class extends Migration
     {
         Schema::create('tanggapans', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('permintaan_id')->constrained();
+            $table->string('cpanel');
+            $table->string('username');
+            $table->string('password');
+            $table->string('domain');
+            $table->string('status', ['Enable', 'Disable']);
+            $table->foreignId('user_id')->constrained();
+
             $table->timestamps();
         });
     }
