@@ -8,7 +8,7 @@
         <div class="row gx-4 mb-2">
             <div class="col-auto">
                 <div class="avatar avatar-xl position-relative">
-                    <img src="{{ auth()->user()->pemohon->profile ?? ''}}" alt="profile_image"
+                    <img src="{{  asset('storage/'.$pemohon->profile) ?? ''}}" alt="profile_image"
                         class="w-100 border-radius-lg shadow-sm">
                 </div>
             </div>
@@ -18,8 +18,8 @@
                         {{ auth()->user()->pemohon->nama}}
                     </h5>
                     <p class="mb-0 font-weight-normal text-sm">
-                        Sebagai <b>{{ auth()->user()->pemohon->bidang->jabatan ?? 'Kosong'}}</b> Di <b>{{
-                            auth()->user()->pemohon->bidang->opd->nama ?? 'Kosong'}}</b>
+                        Sebagai <b>{{ $pemohon->bidang->jabatan ?? 'Kosong'}}</b> Di <b>{{
+                            $pemohon->bidang->opd->nama ?? 'Kosong'}}</b>
                     </p>
                 </div>
             </div>
@@ -38,10 +38,10 @@
                             </p>
                             <ul class="list-group">
                                 <li class="list-group-item border-0 ps-0 pt-0 text-sm">
-                                    <strong class="text-dark">Username:</strong> &nbsp; {{auth()->user()->username}}
+                                    <strong class="text-dark">Username:</strong> &nbsp; {{$pemohon->user->username}}
                                 </li>
                                 <li class="list-group-item border-0 ps-0 text-sm">
-                                    <strong class="text-dark">Role:</strong> &nbsp; {{auth()->user()->role}}
+                                    <strong class="text-dark">Role:</strong> &nbsp; {{$pemohon->user->role}}
                                 </li>
                             </ul>
                         </div>
@@ -97,26 +97,53 @@
                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
-                                    <form action="{{ route('pemohon.update', $pemohon->id)}}" method="POST">
+                                    <form action="{{ route('pemohon.update', $pemohon->id)}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
                                         <div class="modal-header">
-                                            <h5 class="modal-title font-weight-normal" id="exampleModalLabel">Edit Profile
+                                            <h5 class="modal-title font-weight-normal" id="exampleModalLabel">Edit
+                                                Profile
                                                 {{$pemohon->nama}}</h5>
-                                            <button type="button" class="btn-close text-dark me-2" data-bs-dismiss="modal"
-                                                aria-label="Close">
-                                                <span aria-hidden="true"><h2 style="line-height: 0">&times;</h2></span>
+                                            <button type="button" class="btn-close text-dark me-2"
+                                                data-bs-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">
+                                                    <h2 style="line-height: 0">&times;</h2>
+                                                </span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
 
                                             {{-- ISI FORM --}}
                                             <div class="input-group input-group-static mb-4">
-                                                <label>Lokasi CCTV</label>
-                                                <input type="text" class="form-control" name="lokasi"
-                                                    value="{{ $pemohon->bidang->bidang}}" required>
+                                                <label>Photo Profile</label>
+                                                <input type="file" name="profile" class="form-control"
+                                                    required>
                                             </div>
-
+                                            <div class="input-group input-group-static mb-4">
+                                                <label>Nama</label>
+                                                <input type="text" class="form-control" name="nama"
+                                                    value="{{ $pemohon->nama}}" required>
+                                            </div>
+                                            <div class="input-group input-group-static mb-4">
+                                                <label>Email</label>
+                                                <input type="text" class="form-control" name="email"
+                                                    value="{{ $pemohon->email}}" required>
+                                            </div>
+                                            <div class="input-group input-group-static mb-4">
+                                                <label>Alamat</label>
+                                                <input type="text" class="form-control" name="alamat"
+                                                    value="{{ $pemohon->alamat}}" required>
+                                            </div>
+                                            <div class="input-group input-group-static mb-4">
+                                                <label>Jenis Kelamin</label>
+                                                <input type="text" class="form-control" name="jk"
+                                                    value="{{ $pemohon->jk}}" required>
+                                            </div>
+                                            <div class="input-group input-group-static mb-4">
+                                                <label>No HP / WA</label>
+                                                <input type="text" class="form-control" name="no_hp"
+                                                    value="{{ $pemohon->no_hp}}" required>
+                                            </div>
                                             {{-- END ISI FORM --}}
 
                                         </div>
@@ -168,7 +195,7 @@
                         @if ($permintaan->pemohon->id == auth()->user()->pemohon->id)
 
                         <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
-                            <div class="card card-blog card-plain">
+                            <div class="card card-blog card-plain shadow-xl">
                                 <div class="card-header p-0 mt-n4 mx-3">
                                     <a class="d-block shadow-xl border-radius-xl">
                                         {{-- <img src="https://bonebolangokab.go.id/assets/img/foto_bupati.png"
@@ -186,6 +213,8 @@
                                     <p class="mb-4 text-sm">
                                         {{ $permintaan->keterangan}}
                                     </p>
+                                    <span>Status : <button class="btn btn-danger btn-sm mt-3">{{
+                                            $permintaan->status}}</button></span>
                                 </div>
                             </div>
                         </div>

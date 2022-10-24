@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('keterangan');
             $table->string('userhost')->unique();
             $table->string('passhost');
-            $table->enum('status', ['Pending', 'Proses', 'Selesai']);
+            $table->enum('status', ['pending', 'proses', 'selesai']);
             $table->foreignId('pemohon_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

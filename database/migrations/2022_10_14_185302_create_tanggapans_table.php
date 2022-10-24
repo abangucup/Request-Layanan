@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('username');
             $table->string('password');
             $table->string('domain');
-            $table->string('status', ['Enable', 'Disable']);
+            $table->enum('status', ['enable', 'disable']);
             $table->foreignId('user_id')->constrained();
 
             $table->timestamps();

@@ -15,6 +15,11 @@
                 <div class="card-body">
                     <form role="form" class="text-start" action="{{ route('register')}}" method="POST">
                         @csrf
+                        {{-- <div class="input-group input-group-static mb-4">
+                            <label>Photo Profile</label>
+                            <input type="file" name="profile" class="form-control"
+                                required>
+                        </div> --}}
                         <div class="input-group input-group-outline my-3">
                             <label class="form-label">Nama</label>
                             <input type="text" name="nama" class="form-control">

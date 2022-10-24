@@ -12,11 +12,6 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-
-    // public function __construct()
-    // {
-    //     $this->middleware('guest');
-    // }
     public function login()
     {
         return view('auth.login');
@@ -58,7 +53,7 @@ class AuthController extends Controller
     {
         // dd($request->all());
         $validator = Validator::make($request->all(), [
-            // 'profile',
+            // 'profile' => 'required',
             'nama' => 'required',
             'email' => 'required|unique:pemohons',
             'username' => 'required|unique:pemohons',
@@ -70,9 +65,16 @@ class AuthController extends Controller
 
         if ($validator->fails()) {
             alert()->error('Duplicate', 'Data Dulicate');
-            return to_route('home');
+            return back();
         }
-
+        
+        
+        
+        // $profile = $request->file('profile');
+        // dd($profile);
+        // $profile->store('public/pemohon', $profile->hashName());
+        
+        
         $pemohon = new Pemohon();
         $pemohon->nama = $request->nama;
         $pemohon->email = $request->email;
@@ -93,7 +95,7 @@ class AuthController extends Controller
         $user->save();
 
         alert()->success('Register Berhasil', 'Silahkan Login');
-        return to_route('home');
+        return back();
     }
 
     public function logout(Request $request)

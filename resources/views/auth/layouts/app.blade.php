@@ -26,6 +26,7 @@
 
 <body class="bg-gray-200">
     @include('auth.layouts.partials.header')
+    @include('sweetalert::alert')
 
     <main class="main-content  mt-0">
         <div class="page-header align-items-start min-vh-100">
